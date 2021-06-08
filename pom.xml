@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<graphql.version>11.1.0</graphql.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -57,6 +58,53 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-webmvc-core</artifactId>
 			<version>1.5.9</version>
+		</dependency>
+
+		<!-- Graphql Dependencies -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphql-spring-boot-starter</artifactId>
+			<version>${graphql.version}</version>
+		</dependency>
+
+		<!-- to embed Altair tool -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>altair-spring-boot-starter</artifactId>
+			<version>${graphql.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- to embed GraphiQL tool -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphiql-spring-boot-starter</artifactId>
+			<version>${graphql.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- to embed GraphQL Playground tool -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>playground-spring-boot-starter</artifactId>
+			<version>${graphql.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- to embed Voyager tool -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>voyager-spring-boot-starter</artifactId>
+			<version>${graphql.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- testing facilities -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>graphql-spring-boot-starter-test</artifactId>
+			<version>${graphql.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
