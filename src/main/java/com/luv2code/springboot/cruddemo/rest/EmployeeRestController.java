@@ -40,6 +40,8 @@ public class EmployeeRestController {
 
     @PutMapping("/employees")
     public ResponseEntity<DataResponse> updateEmployee(@RequestBody Employee theEmployee) {
+        this.checkEmployeeExistence(theEmployee.getId());
+
         this.employeeService.save(theEmployee);
 
         return new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), "Employee updated successfully", theEmployee), HttpStatus.OK);

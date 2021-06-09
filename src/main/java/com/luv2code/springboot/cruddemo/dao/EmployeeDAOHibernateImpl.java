@@ -3,7 +3,6 @@ package com.luv2code.springboot.cruddemo.dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import com.luv2code.springboot.cruddemo.entity.Employee;
-import com.luv2code.springboot.cruddemo.rest.NotFoundException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
