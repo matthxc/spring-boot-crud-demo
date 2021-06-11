@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService {
+public class EmployeeServiceImpl implements EmployeeService, GraphQLQueryResolver {
     private EmployeeRepository employeeRepository;
 
     @Autowired

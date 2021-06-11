@@ -19,3 +19,18 @@ spring:
     url: jdbc:mysql://localhost:3306/employee_directory?useSSL=false&serverTimezone=UTC
     username: root
     password: 123456789
+
+graphql:
+  tools:
+    schema-location-pattern: "**/*.graphqls"
+    # Enable or disable the introspection query. Disabling it puts your server in contravention of the GraphQL
+    # specification and expectations of most clients, so use this option with caution
+    introspection-enabled: true
+  servlet:
+    actuator-metrics: true
+    async-timeout: 1000
+  playground:
+    enabled: true
+    cdn:
+      enabled: false
+      version: latest

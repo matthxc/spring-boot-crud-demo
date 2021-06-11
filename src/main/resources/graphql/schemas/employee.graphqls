@@ -1,5 +1,6 @@
 type Query {
-  findAll: Employee
+  findAll: [Employee!]
+  findById(id: Int): Employee
 }
 
 type Employee {
