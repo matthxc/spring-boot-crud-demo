@@ -59,21 +59,34 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.3.7" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.5.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-webflux:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.12.3" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.46" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.46" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.46" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-reactor-netty:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-http:1.0.7" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-http:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-http2:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-dns:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver-dns-native-macos:osx-x86_64:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-unix-common:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor.netty:reactor-netty-core:1.0.7" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler-proxy:4.1.65.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec-socks:4.1.65.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.7" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.7" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webflux:5.3.7" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-devtools:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.5.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.5.0" level="project" />
@@ -117,6 +130,8 @@
     <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" level="project" />
     <orderEntry type="library" name="Maven: io.github.classgraph:classgraph:4.8.69" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: com.graphql-java-kickstart:graphql-spring-boot-starter:11.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.graphql-java-kickstart:graphql-spring-boot-autoconfigure:11.1.0" level="project" />
     <orderEntry type="library" name="Maven: com.graphql-java-kickstart:graphql-kickstart-spring-boot-starter-tools:11.1.0" level="project" />
@@ -129,11 +144,14 @@
     <orderEntry type="library" name="Maven: javax.websocket:javax.websocket-api:1.1" level="project" />
     <orderEntry type="library" name="Maven: com.graphql-java:graphql-java:16.2" level="project" />
     <orderEntry type="library" name="Maven: com.graphql-java:java-dataloader:2.2.3" level="project" />
-    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.antlr:antlr4-runtime:4.8" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-websocket:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-messaging:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-websocket:5.3.7" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:9.0.46" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.46" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.graphql-java-kickstart:altair-spring-boot-starter:11.1.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.graphql-java-kickstart:altair-spring-boot-autoconfigure:11.1.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.graphql-java-kickstart:graphql-kickstart-starter-utils:11.1.0" level="project" />
@@ -149,6 +167,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-starter-validation:2.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.46" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.hibernate.validator:hibernate-validator:6.2.0.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.graphql-java-kickstart:voyager-spring-boot-starter:11.1.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.graphql-java-kickstart:voyager-spring-boot-autoconfigure:11.1.0" level="project" />
@@ -168,5 +187,8 @@
     <orderEntry type="library" name="Maven: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-kotlin:2.12.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.projectreactor:reactor-test:3.4.6" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.4.6" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
   </component>
 </module>

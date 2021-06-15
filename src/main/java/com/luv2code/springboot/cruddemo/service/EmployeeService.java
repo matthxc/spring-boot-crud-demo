@@ -1,14 +1,16 @@
 package com.luv2code.springboot.cruddemo.service;
 
 import com.luv2code.springboot.cruddemo.entity.Employee;
-import java.util.List;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface EmployeeService {
-    public List<Employee> findAll();
+    public Flux<Employee> findAll();
 
-    public Employee findById(int theId);
+    public Mono<Employee> findById(int theId);
 
-    public void save(Employee theEmployee);
+    public Mono<Employee> save(Employee theEmployee);
 
-    public void deleteById(int theId);
+    public Mono<Void> deleteById(int theId);
 }

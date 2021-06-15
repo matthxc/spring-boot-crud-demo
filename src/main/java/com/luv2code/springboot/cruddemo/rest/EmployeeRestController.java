@@ -1,15 +1,25 @@
 package com.luv2code.springboot.cruddemo.rest;
 
+import java.util.List;
+
 import com.luv2code.springboot.cruddemo.entity.Employee;
 import com.luv2code.springboot.cruddemo.service.EmployeeService;
+import com.luv2code.springboot.cruddemo.service.EmployeeServiceImpl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 @RestController
 @RequestMapping("/api")
 public class EmployeeRestController {
+    Logger logger = LoggerFactory.getLogger(EmployeeRestController.class);
 
     private EmployeeService employeeService;
 
@@ -19,48 +29,54 @@ public class EmployeeRestController {
     }
 
     @GetMapping("/employees")
-    public ResponseEntity<DataResponse> findAll() {
-        return new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), this.employeeService.findAll()), HttpStatus.OK);
+    public Mono<ResponseEntity> findAll() {
+        return this.employeeService.findAll().collectList().map(employees -> new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), employees), HttpStatus.OK));
     }
 
     @GetMapping("/employees/{employeeId}")
-    public ResponseEntity<DataResponse> findById(@PathVariable int employeeId) {
-        return new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), this.employeeService.findById(employeeId)), HttpStatus.OK);
+    public Mono<ResponseEntity> findById(@PathVariable int employeeId) {
+        return this.employeeService.findById(employeeId).map(employee -> new ResponseEntity(new DataResponse<>(HttpStatus.OK.value(), employee), HttpStatus.OK));
     }
 
     @PostMapping("/employees")
-    public ResponseEntity<DataResponse> addEmployee(@RequestBody Employee theEmployee) {
+    public Mono<ResponseEntity> addEmployee(@RequestBody Employee theEmployee) {
         // Set it to 0 to insert a new record
         theEmployee.setId(0);
 
-        this.employeeService.save(theEmployee);
-
-        return new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), "Employee added successfully", theEmployee), HttpStatus.OK);
+        return this.employeeService.save(theEmployee).map(employee -> new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), "Employee added successfully", employee), HttpStatus.OK));
     }
 
     @PutMapping("/employees")
-    public ResponseEntity<DataResponse> updateEmployee(@RequestBody Employee theEmployee) {
-        this.checkEmployeeExistence(theEmployee.getId());
-
-        this.employeeService.save(theEmployee);
-
-        return new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), "Employee updated successfully", theEmployee), HttpStatus.OK);
+    public Mono<ResponseEntity> updateEmployee(@RequestBody Employee theEmployee) {
+        return this.checkEmployeeExistence(theEmployee.getId())
+            .delayUntil(employee -> this.employeeService.save(theEmployee))
+            .map(employee ->
+            new ResponseEntity<>(
+                new DataResponse<>(HttpStatus.OK.value(),
+                    "Employee updated successfully", employee),
+                HttpStatus.OK
+            )
+        );
     }
 
     @DeleteMapping("/employees/{employeeId}")
-    public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable int employeeId) {
-        this.checkEmployeeExistence(employeeId);
-
-        this.employeeService.deleteById(employeeId);
-
-        return new ResponseEntity<>(new ApiResponse(HttpStatus.OK.value(), "Employee with ID: " + employeeId + " deleted successfully"), HttpStatus.OK);
+    public Mono<ResponseEntity> deleteEmployee(@PathVariable int employeeId) {
+        return this.checkEmployeeExistence(employeeId)
+            .delayUntil(employee -> this.employeeService.deleteById(employeeId))
+            .map((v) ->
+                new ResponseEntity<>(
+                new ApiResponse(HttpStatus.OK.value(),
+                    "Employee with ID: " + employeeId + " deleted successfully"),
+                HttpStatus.OK
+            )
+        );
     }
 
-    private void checkEmployeeExistence(Integer employeeId) {
+    private Mono<Employee> checkEmployeeExistence(Integer employeeId) {
         if (employeeId == null || employeeId == 0) {
-            throw new NotFoundException("The Employee ID must be set");
+            return Mono.error(new NotFoundException("The Employee ID must be set"));
         }
 
-        this.employeeService.findById(employeeId);
+        return this.employeeService.findById(employeeId);
     }
 }
