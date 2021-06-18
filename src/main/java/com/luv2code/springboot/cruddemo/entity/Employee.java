@@ -64,14 +64,4 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", firstName='" + getFirstName() + "'" +
-            ", lastName='" + getLastName() + "'" +
-            ", email='" + getEmail() + "'" +
-            "}";
-    }
 }

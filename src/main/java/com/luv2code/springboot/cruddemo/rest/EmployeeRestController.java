@@ -33,17 +33,18 @@ public class EmployeeRestController {
     }
 
     @PostMapping("/employees")
+    @ResponseStatus(HttpStatus.CREATED)
     public Mono<ResponseEntity> addEmployee(@RequestBody Employee theEmployee) {
         // Set it to 0 to insert a new record
         theEmployee.setId(0);
 
-        return this.employeeService.save(theEmployee).map(employee -> new ResponseEntity<>(new DataResponse<>(HttpStatus.OK.value(), "Employee added successfully", employee), HttpStatus.OK));
+        return this.employeeService.save(theEmployee).map(employee -> new ResponseEntity<>(new DataResponse<>(HttpStatus.CREATED.value(), "Employee added successfully", employee), HttpStatus.CREATED));
     }
 
     @PutMapping("/employees")
     public Mono<ResponseEntity> updateEmployee(@RequestBody Employee theEmployee) {
         return this.checkEmployeeExistence(theEmployee.getId())
-            .delayUntil(employee -> this.employeeService.save(theEmployee))
+            .flatMap(employee -> this.employeeService.save(theEmployee))
             .map(employee ->
             new ResponseEntity<>(
                 new DataResponse<>(HttpStatus.OK.value(),
@@ -66,8 +67,8 @@ public class EmployeeRestController {
         );
     }
 
-    private Mono<Employee> checkEmployeeExistence(Integer employeeId) {
-        if (employeeId == null || employeeId == 0) {
+    private Mono<Employee> checkEmployeeExistence(int employeeId) {
+        if (employeeId == 0) {
             return Mono.error(new NotFoundException("The Employee ID must be set"));
         }
 

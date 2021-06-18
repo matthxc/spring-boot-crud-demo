@@ -3,9 +3,6 @@ package com.luv2code.springboot.cruddemo.rest;
 public class DataResponse<T> extends ApiResponse {
   private T data;
 
-  public DataResponse() {
-  }
-
   public DataResponse(int status, T data) {
     super(status);
     this.data = data;
@@ -18,9 +15,5 @@ public class DataResponse<T> extends ApiResponse {
 
   public T getData() {
     return data;
-  }
-
-  public void setData(T data) {
-    this.data = data;
   }
 }

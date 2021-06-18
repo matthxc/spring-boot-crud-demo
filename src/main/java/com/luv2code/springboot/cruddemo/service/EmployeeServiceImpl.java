@@ -39,10 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Mono<Employee> save(Employee theEmployee) {
-        return Mono.create(employeeMonoSink -> {
-            Employee employee = employeeRepository.save(theEmployee);
-            employeeMonoSink.success(employee);
-        });
+        return Mono.just(employeeRepository.save(theEmployee));
     }
 
     @Override
