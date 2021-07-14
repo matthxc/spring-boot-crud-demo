@@ -11,23 +11,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import com.luv2code.springboot.cruddemo.dao.EmployeeRepository;
 import com.luv2code.springboot.cruddemo.entity.Employee;
-import com.luv2code.springboot.cruddemo.rest.EmployeeRestController;
-import com.luv2code.springboot.cruddemo.service.EmployeeServiceImpl;
-
-import reactor.core.publisher.Mono;
 
 @ExtendWith(SpringExtension.class)
-@WebFluxTest(controllers = EmployeeRestController.class)
-@Import(EmployeeServiceImpl.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class WebMockTest {
   @MockBean
   EmployeeRepository employeeRepository;

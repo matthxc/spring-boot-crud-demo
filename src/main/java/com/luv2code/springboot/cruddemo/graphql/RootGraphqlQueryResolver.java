@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.luv2code.springboot.cruddemo.dao.EmployeeRepository;
 import com.luv2code.springboot.cruddemo.entity.Employee;
 import com.luv2code.springboot.cruddemo.rest.NotFoundException;
-import graphql.kickstart.tools.GraphQLQueryResolver;
+
 
 @Service
-public class RootGraphqlQueryResolver implements GraphQLQueryResolver {
+public class RootGraphqlQueryResolver {
   private EmployeeRepository employeeRepository;
 
   Logger logger = LoggerFactory.getLogger(getClass().getName());

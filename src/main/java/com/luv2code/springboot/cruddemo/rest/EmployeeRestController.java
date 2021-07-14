@@ -1,7 +1,6 @@
 package com.luv2code.springboot.cruddemo.rest;
 
 import javax.validation.Valid;
-
 import com.luv2code.springboot.cruddemo.entity.Employee;
 import com.luv2code.springboot.cruddemo.service.EmployeeService;
 import org.slf4j.Logger;
@@ -35,7 +34,6 @@ public class EmployeeRestController {
     }
 
     @PostMapping("/employees")
-    @ResponseStatus(HttpStatus.CREATED)
     public Mono<ResponseEntity> addEmployee(@Valid @RequestBody Employee theEmployee) {
         // Set it to 0 to insert a new record
         theEmployee.setId(0);
