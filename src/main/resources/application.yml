@@ -21,6 +21,8 @@ spring:
     url: jdbc:mysql://localhost:3306/employee_directory?useSSL=false&serverTimezone=UTC
     username: root
     password: 123456789
+  application:
+    name: employees-service
 
 graphql:
   tools:
@@ -36,3 +38,8 @@ graphql:
     cdn:
       enabled: false
       version: latest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8010/eureka"
